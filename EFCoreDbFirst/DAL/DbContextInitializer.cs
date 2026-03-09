@@ -18,14 +18,15 @@ namespace EFCoreDbFirst.DAL
 
         public static void Build()
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile
-                ("appsettings.json", optional: true, reloadOnChange: true);//uygulamanin calismis oldugu kllasoru al
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
             Configuration = builder.Build();
+
+            // BURAYI AKTİF ET:
             optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
             optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SqlCon"));
-
-
         }
     }
 }

@@ -4,7 +4,6 @@
 
 using EFCoreDbFirst.DAL;
 using Microsoft.EntityFrameworkCore;
-
 DbContextInitializer.Build();
 
 using (var _context = new AppDbContext(DbContextInitializer.optionsBuilder.Options))
@@ -13,7 +12,7 @@ using (var _context = new AppDbContext(DbContextInitializer.optionsBuilder.Optio
 
     products.ForEach(x =>
     {
-        Console.WriteLine($"{x.id} {x.Name}");
+        Console.WriteLine($"{x.id} {x.Name} {x.Price} {x.Stock}");
 
     });
     Console.ReadLine();
